@@ -128,6 +128,7 @@ set(common_includes
     ${TRACY_PUBLIC_DIR}/common/TracyStackFrames.hpp
     ${TRACY_PUBLIC_DIR}/common/TracySystem.hpp
     ${TRACY_PUBLIC_DIR}/common/TracyUwp.hpp
+    ${TRACY_PUBLIC_DIR}/common/TracyVersion.hpp
     ${TRACY_PUBLIC_DIR}/common/TracyYield.hpp)
 
 install(TARGETS TracyClient
