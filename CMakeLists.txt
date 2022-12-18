@@ -138,9 +138,9 @@ install(TARGETS TracyClient
 install(FILES ${tracy_includes}
         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/tracy)
 install(FILES ${client_includes}
-        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/client)
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/tracy/client)
 install(FILES ${common_includes}
-        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/common)
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/tracy/common)
 install(EXPORT TracyConfig
         NAMESPACE Tracy::
         FILE TracyConfig.cmake
