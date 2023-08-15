@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.18)
 
 project(Tracy LANGUAGES CXX)
 
@@ -130,6 +130,7 @@ set(common_includes
     ${TRACY_PUBLIC_DIR}/common/TracyStackFrames.hpp
     ${TRACY_PUBLIC_DIR}/common/TracySystem.hpp
     ${TRACY_PUBLIC_DIR}/common/TracyUwp.hpp
+    ${TRACY_PUBLIC_DIR}/common/TracyVersion.hpp
     ${TRACY_PUBLIC_DIR}/common/TracyYield.hpp)
 
 install(TARGETS TracyClient
