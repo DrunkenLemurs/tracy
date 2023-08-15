@@ -484,9 +484,9 @@ static const char* GetHostInfo()
         GetVersion( &ver );
 
 #  ifdef __MINGW32__
-        ptr += sprintf( ptr, "OS: Windows %i.%i.%i (MingW)\n", (int)ver.dwMajorVersion, (int)ver.dwMinorVersion, (int)ver.dwBuildNumber );
+        ptr += sprintf( ptr, "OS: Windows %li.%li.%li (MingW)\n", (int)ver.dwMajorVersion, (int)ver.dwMinorVersion, (int)ver.dwBuildNumber );
 #  else
-        ptr += sprintf( ptr, "OS: Windows %i.%i.%i\n", ver.dwMajorVersion, ver.dwMinorVersion, ver.dwBuildNumber );
+        ptr += sprintf( ptr, "OS: Windows %li.%li.%li\n", ver.dwMajorVersion, ver.dwMinorVersion, ver.dwBuildNumber );
 #  endif
     }
 #elif defined __linux__
@@ -3614,7 +3614,14 @@ void Profiler::ReportTopology()
     DWORD psz = 0;
     _GetLogicalProcessorInformationEx( RelationProcessorPackage, nullptr, &psz );
     auto packageInfo = (SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX*)tracy_malloc( psz );
+#  ifdef __clang__
+#    pragma clang diagnostic push
+#    pragma clang diagnostic ignored "-Wunused-but-set-variable"
+#  endif
     auto res = _GetLogicalProcessorInformationEx( RelationProcessorPackage, packageInfo, &psz );
+#  ifdef __clang__
+#    pragma clang diagnostic pop
+#  endif
     assert( res );
 
     DWORD csz = 0;
